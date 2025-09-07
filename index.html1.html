@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscrição Recebida - Fenrir Tactical Unit</title>
+
+  <!-- ====== Fonte militar ====== -->
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+  <!-- ====== CSS Interno ====== -->
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-family: 'Black Ops One', sans-serif;
+      font-size: 2.5em;
+      color: #4B5320;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards, glow 2s infinite alternate;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 15px 0 30px;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #4B5320;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.2s;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+      animation-delay: 1.8s;
+    }
+    .btn:hover {
+      background: #5c6f2f;
+      transform: scale(1.05);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+
+    /* ====== Animações ====== */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #4B5320, 0 0 10px #4B5320; }
+      to { text-shadow: 0 0 15px #5c6f2f, 0 0 30px #5c6f2f; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ====== Mensagem de confirmação ====== -->
+  <h1>✅ Inscrição Enviada!</h1>
+  <p>Recebemos sua inscrição. Em breve nossa equipe entrará em contato.<br>  
+     Bem-vindo à Matilha Fenrir! 🐺⚔️</p>
+  <a href="index.html" class="btn">⬅ Voltar ao Início</a>
+
+  <!-- ====== Rodapé ====== -->
+  <footer>
+    © 2025 Fenrir Tactical Unit Airsoft • Aracaju-SE
+  </footer>
+</body>
+</html>

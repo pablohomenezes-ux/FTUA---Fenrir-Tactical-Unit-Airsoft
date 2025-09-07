@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fenrir Tactical Unit Airsoft</title>
+
+  <!-- ====== Importação da fonte estilo militar ====== -->
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+  <!-- ====== Estilos CSS Internos ====== -->
+  <style>
+    /* ====== Estrutura Global ====== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #111;
+      color: #fff;
+    }
+    h1, h2, h3, .logo {
+      font-family: 'Black Ops One', sans-serif;
+      letter-spacing: 1px;
+      font-weight: normal;
+      color: #4B5320; /* Verde militar */
+    }
+    p, li, blockquote, input, textarea, button {
+      font-family: Arial, sans-serif;
+    }
+
+    /* ====== Cabeçalho fixo ====== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #000;
+      padding: 15px 30px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo { font-size: 26px; color: #4B5320; }
+    nav ul { display: flex; list-style: none; margin: 0; padding: 0; }
+    nav ul li { margin-left: 20px; }
+    nav ul li a { color: #fff; text-decoration: none; }
+
+    /* ====== Hero / Início ====== */
+    .hero {
+      padding: 120px 20px 60px;
+      text-align: center;
+      background-image: url(camuflagem.png);
+      background-size: cover;
+      background-position: center;
+    }
+    .hero p { font-size: 1.2em; }
+
+    /* ====== Botões ====== */
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #4B5320;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .btn:hover { background: #5c6f2f; }
+
+    /* ====== Cards ====== */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .card {
+      background: #5c6f2f;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .card:hover {
+      background: #4B5320;
+      transform: translateY(-5px);
+    }
+
+    /* ====== Galeria ====== */
+    .grid-fotos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .grid-fotos img { width: 100%; border-radius: 8px; }
+    .videos iframe {
+      width: 45%;
+      height: 250px;
+      margin: 10px;
+    }
+    @media (max-width:768px){
+      .videos iframe { width: 100%; }
+    }
+
+    /* ====== Accordion ====== */
+    .accordion-btn {
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+      padding: 15px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      font-size: 1.1em;
+      transition: background 0.3s;
+      margin-top: 10px;
+      border-radius: 6px;
+    }
+    .accordion-btn:hover, .accordion-btn.active { background: #4B5320; }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      background: #222;
+      padding: 0 15px;
+      border-radius: 0 0 6px 6px;
+    }
+
+    /* ====== Crachás ====== */
+    .crachas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .crachas img {
+      width: 120px;
+      border-radius: 8px;
+      background: #fff;
+      padding: 5px;
+    }
+
+    /* ====== Formulário ====== */
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    form input, form textarea, form button {
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+    }
+    form textarea { min-height: 100px; }
+    form button {
+      background: #4B5320;
+      color: #fff;
+      cursor: pointer;
+    }
+    form button:hover { background: #5c6f2f; }
+
+    /* ====== CARD MILITAR PARA FORMULÁRIO ====== */
+    .contact-card {
+      background-color: #1c1c1c;
+      color: #e0e0e0;
+      border: 2px solid #4B5320;
+      border-radius: 12px;
+      padding: 25px;
+      max-width: 450px;
+      margin: 30px auto;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.7);
+      font-family: 'Arial', sans-serif;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.8);
+    }
+    .contact-card h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-family: 'Black Ops One', sans-serif;
+      color: #B0C04A;
+    }
+    .contact-card label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .contact-card input, 
+    .contact-card textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #555;
+      border-radius: 6px;
+      background-color: #2a2a2a;
+      color: #e0e0e0;
+    }
+    .contact-card textarea { min-height: 100px; }
+    .contact-card button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4B5320;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .contact-card button:hover {
+      background-color: #6b6f2f;
+    }
+
+    /* ====== TÍTULO ANIMADO COM MUNIÇÃO ====== */
+    .titulo-container {
+      position: relative;
+      width: fit-content;
+      margin: 50px auto;
+      text-align: center;
+    }
+    .titulo-fenrir {
+      font-family: 'Black Ops One', sans-serif;
+      font-size: 4em;
+      color: #4B5320;
+      text-transform: uppercase;
+      line-height: 1.2em;
+      position: relative;
+      z-index: 2;
+      -webkit-text-stroke: 3px #fff;
+      text-stroke: 3px #fff;
+    }
+    .municao {
+  position: absolute;
+  top: 50%; /* centralizada verticalmente */
+  left: -50px; /* ponto inicial fora da tela */
+  width: 25px;
+  height: 10px;
+  background: rgb(184, 156, 1);
+  border-radius: 50%;
+  z-index: 3;
+  animation: municao-move 3s linear infinite;
+}
+
+@keyframes municao-move {
+  0% { left: -50px; }
+  100% { left: 110%; } /* atravessa toda a tela */
+}
+
+    .rastro {
+      position: absolute;
+      top: 33%;
+      left: -50px;
+      width: 25px;
+      height: 4px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0));
+      border-radius: 2px;
+      z-index: 2;
+      animation: rastro-move 4s linear infinite;
+    }
+    @keyframes municao-move {
+      0% { left: -50px; top: 33%; transform: rotate(0deg); }
+      33% { left: 110%; top: 33%; transform: rotate(360deg); }
+      34% { left: -50px; top: 50%; transform: rotate(0deg); }
+      66% { left: 110%; top: 50%; transform: rotate(360deg); }
+      67% { left: -50px; top: 66%; transform: rotate(0deg); }
+      100% { left: 110%; top: 66%; transform: rotate(360deg); }
+    }
+    @keyframes rastro-move {
+      0% { left: -50px; top: 33%; opacity: 1; }
+      33% { left: 110%; top: 33%; opacity: 0; }
+      34% { left: -50px; top: 50%; opacity: 1; }
+      66% { left: 110%; top: 50%; opacity: 0; }
+      67% { left: -50px; top: 66%; opacity: 1; }
+      100% { left: 110%; top: 66%; opacity: 0; }
+    }
+
+    /* ====== Rodapé ====== */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      margin-top: 40px;
+    }
+
+    /* ====== Botão Voltar ao Topo ====== */
+    #btn-topo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      background: #4B5320;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== Cabeçalho ====== -->
+  <header>
+    <div class="logo">FTUA</div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre a Fenrir Tactical Unit Airsoft</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#conteudo">Conteúdo</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ====== Hero ====== -->
+  <section id="inicio" class="hero">
+    <div class="titulo-container">
+      <h1 class="titulo-fenrir">
+        Fenrir<br>Tactical Unit<br>Airsoft
+      </h1>
+      <div class="municao"></div>
+      <div class="rastro"></div>
+    </div>
+    <p>A Matilha Nunca Abandona Ninguém</p>
+    <a href="#sobre" class="btn">Conheça Mais</a>
+  </section>
+
+<!-- ====== Sobre ====== -->
+<section id="sobre">
+  <h2>Sobre a Equipe</h2>
+  <div class="card-transparente">
+    <p>🛡️ <strong>Fenrir Tactical Unit Airsoft (FTUA)</strong> <p>
+    <p>Nasceu da paixão pelo airsoft e pelo espírito de equipe. Inspirada na disciplina, estratégia e camaradagem do universo militar, nossa unidade combina técnica, treino e respeito pelas regras para criar experiências táticas únicas e seguras.</p>
+    <p>⚔️ Somos mais que jogadores:<p>
+    <p>Somos operadores dedicados, cada um com funções específicas dentro de nossos esquadrões, trabalhando juntos para superar desafios em campo.<p>
+    <p><strong>lobo Fenrir</strong><p> 
+    <p>O símbolo da nossa equipe, representa força, lealdade e liderança — valores que norteiam todas as nossas missões e interações.</p>
+    <p>🎯 Na FTUA, prezamos pela excelência, inovação e espírito de equipe. Oferecemos treinamentos, operações simuladas e participação em eventos, sempre com o objetivo de desenvolver habilidades, camaradagem e diversão estratégica para todos os nossos membros. Seja você um novato ou um veterano do airsoft, aqui você encontrará um ambiente que valoriza disciplina, respeito e paixão pelo jogo.</p>
+    <p>🐺 <strong>Fenrir Tactical Unit Airsoft — Força, estratégia e espírito de equipe em cada missão.</strong></p>
+  </div>
+
+  <style>
+    /* ====== Sobre Card Transparente e Tático ====== */
+    #sobre {
+      padding: 60px 20px;
+      background: url('fundo-militar.jpg') no-repeat center center/cover; /* opcional */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #sobre h2 {
+      font-size: 2.2rem;
+      color: #f5f5f5;
+      margin-bottom: 30px;
+      text-align: center;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+    .card-transparente {
+      position: relative;
+      background: rgba(0, 0, 0, 0.65); /* Transparência */
+      border-radius: 20px;
+      padding: 30px 40px;
+      max-width: 900px;
+      color: #f5f5f5;
+      font-size: 1rem;
+      line-height: 1.8;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card-transparente p {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    /* Hover interativo */
+    .card-transparente:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Marca d’água tática */
+    .card-transparente::before {
+      content: "FTUA";
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 3rem;
+      color: rgba(255, 255, 255, 0.1);
+      font-weight: bold;
+      letter-spacing: 5px;
+      pointer-events: none;
+    }
+
+    @media (max-width: 768px) {
+      .card-transparente {
+        padding: 20px;
+      }
+      #sobre h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</section>
+
+    <div class="cards">
+      <div class="card"><h3>Missão</h3><p>Trazer experiências táticas autênticas.</p></div>
+      <div class="card"><h3>Valores</h3><p>Honra, respeito, disciplina e união.</p></div>
+      <div class="card"><h3>Lema</h3><p>Silentium, Vis, Unitas</p></div>
+    </div>
+  </section>
+
+
+ <!-- ====== Galeria ====== -->
+<section id="galeria">
+  <h2>Galeria</h2>
+  <div class="grid-fotos">
+    <div class="card">
+      <img src="foto01.jpeg" alt="Foto 1">
+      <h3>patch</h3>
+      <p>O patch representa o símbolo da Fenrir Tactical Unit Airsoft:
+    sendo usado pelos membros como identificação e orgulho da matilha.</p>
+    </div>
+    <div class="card">
+      <img src="foto02.jpeg" alt="Foto 2">
+      <h3>Camisa - Fardamento</h3>
+      <p>Utilizados para eventos e treinos, para dar uma maior identidade ao grupo como um só.</p>
+    </div>
+    <div class="card">
+      <img src="foto03.jpeg" alt="Foto 3">
+      <h3>Bandeira F.T.U.A</h3>
+      <p>A Bandeira nos representa em jogos, eventos e campeonatos pelo Estado.</p>
+    </div>
+    <div class="card">
+      <img src="foto04.jpeg" alt="Foto 4">
+      <h3>Logo F.T.U.A</h3>
+      <p>o lobo Fenrir sobre um escudo bipartido urbano/florestal. Ele simboliza força, união e lealdade da equipe</p>
+    </div>
+  </div>
+</section>
+
+    <div class="videos">
+      <iframe src="https://www.youtube.com/embed/VID1" frameborder="0"></iframe>
+      <iframe src="https://www.youtube.com/embed/VID2" frameborder="0"></iframe>
+    </div>
+  </section>
+
+ <!-- ====== Conteúdo Accordion ====== -->
+<section id="conteudo">
+  <h2>📖 Estrutura Oficial</h2>
+
+  <button class="accordion-btn">1. Identidade da Equipe</button>
+  <div class="accordion-content">
+    <p><strong>Nome oficial:</strong> Fenrir Tactical Unit – Airsoft</p>
+    <p><strong>Símbolo:</strong> Escudo bipartido urbano/florestal com o lobo Fenrir</p>
+    <p><strong>Lema:</strong> “Silentium, Vis, Unitas” (Silêncio, Força, Unidade)</p>
+    <p><strong>Valores:</strong> Honra, respeito, disciplina e união</p>
+  </div>
+
+  <button class="accordion-btn">2. Requisitos para Participar</button>
+  <div class="accordion-content">
+    <p>Ter 18 anos ou mais (por lei)</p>
+    <p>Possuir equipamento próprio:</p>
+    <ul>
+      <li>Arma de Airsoft (com nota fiscal e ponta laranja/vermelha)</li>
+      <li>Óculos de proteção obrigatórios</li>
+      <li>Uniforme padronizado (camuflagem urbana ou florestal)</li>
+      <li>Rádio/Headset (recomendado)</li>
+    </ul>
+    <p>Respeitar as leis e normas do Airsoft no Brasil (COLOG)</p>
+  </div>
+
+  <button class="accordion-btn">3. Conduta e Disciplina</button>
+  <div class="accordion-content">
+    <p>Respeito sempre com colegas, adversários e árbitros</p>
+    <p>Proibido portar armas de Airsoft em público de forma ostensiva</p>
+    <p>Proibido o uso de drogas ou álcool antes/durante treinos e jogos</p>
+    <p>Fair Play: Acusou o hit, está fora</p>
+    <p>Trabalho em equipe é prioridade – somos uma matilha</p>
+  </div>
+
+  <button class="accordion-btn">4. Segurança</button>
+  <div class="accordion-content">
+    <p>Uso de óculos de proteção é obrigatório em todas as partidas</p>
+    <p>Armas devem ser transportadas em case/bolsa própria, nunca expostas em via pública</p>
+    <p>Dentro da Safe Zone, armas devem estar sem carregador e com trava acionada</p>
+    <p>Distância mínima de disparo:</p>
+    <ul>
+      <li>Abaixo de 5 metros → uso de “bang” verbal ou toque</li>
+    </ul>
+    <p>Granadas de Airsoft permitidas apenas em campo autorizado</p>
+  </div>
+
+  <button class="accordion-btn">5. Estrutura da Equipe</button>
+  <div class="accordion-content">
+    <p><strong>Capitão (Alpha):</strong> responsável por estratégia e organização</p>
+    <p><strong>Tenente (Bravo):</strong> apoio ao capitão e substituto</p>
+    <p><strong>Operadores:</strong></p>
+    <ul>
+      <li><strong>Assalto (Rifleman):</strong> linha de frente, versatilidade, CQB e médio alcance<br>
+          Armas: M4, HK416, SCAR-L, AK74U, AK47, AUG, FAMAS, TAR-21, MP5, UMP45, P90</li>
+      <li><strong>Apoio Leve:</strong> supressão inimiga com mobilidade<br>
+          Armas: RPK, Stoner 63, M249 Para, rifles automáticos adaptados com drum mag</li>
+      <li><strong>Sniper/DMR:</strong> longo alcance e precisão<br>
+          Armas: VSR-10, L96, M24, M40, SR-25, M14 EBR, SCAR-H DMR, HK417<br>
+          Secundária: pistola GBB (Hi-Capa, Glock, 1911, SIG P226)</li>
+      <li><strong>Apoio Pesado:</strong> fogo contínuo, fixar inimigo<br>
+          Armas: M249, M60, M240B, PKM, MG42, MK46</li>
+    </ul>
+  </div>
+
+  <button class="accordion-btn">6. Treinamento</button>
+  <div class="accordion-content">
+    <p>Treinos regulares (mínimo 1 vez por mês)</p>
+    <p>Prática de:</p>
+    <ul>
+      <li>Comunicação em rádio</li>
+      <li>Movimentação em equipe (patrulha, CQB, florestal)</li>
+      <li>Táticas de ataque e defesa</li>
+    </ul>
+  </div>
+
+  <button class="accordion-btn">7. Representação da Equipe</button>
+  <div class="accordion-content">
+    <p>Sempre representar a Fenrir Tactical Unit com respeito</p>
+    <p>Uso autorizado do patch e bandeira apenas por membros ativos</p>
+    <p>Participação em eventos somente com autorização do Comandante</p>
+    <p>Uso obrigatório do fardamento para treinos e eventos</p>
+  </div>
+
+  <button class="accordion-btn">8. Penalidades</button>
+  <div class="accordion-content">
+    <p>Advertência verbal – em caso de falha leve</p>
+    <p>Advertência escrita – reincidência ou desrespeito</p>
+    <p>Expulsão – em caso de comportamento antiético, agressão física, trapaça ou violação grave</p>
+  </div>
+
+  <button class="accordion-btn">📌 Juramento do Membro Fenrir</button>
+  <div class="accordion-content">
+    <p>"Sou parte da Matilha.<br>
+    Respeito meus irmãos de armas.<br>
+    Combato com honra, disciplina e coragem.<br>
+    Onde houver escuridão, serei sombra.<br>
+    Onde houver combate, serei Fenrir."</p>
+  </div>
+</section>
+
+
+  <!-- ====== Contato ====== -->
+  <section id="contato">
+    <h2>📞 Contato & Redes Sociais</h2>
+    <a href="https://wa.me/message/VXFBP4FNFVIDB1" class="btn" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/fenrir.tactical.unit.airsoft" class="btn" target="_blank">Instagram</a>
+
+    <div class="contact-card">
+      <h3>📋 Formulário de Inscrição</h3>
+      <form action="https://formsubmit.co/fenrirtacticalunitairsoft@gmail.com" method="POST">
+        <input type="text" name="nome" placeholder="Nome completo" required>
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <textarea name="mensagem" placeholder="Por que deseja entrar na equipe?" required></textarea>
+        <label for="telefone">📞 Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(XX) XXXXX-XXXX" required>
+        <button type="submit">Enviar Inscrição</button>
+
+        <!-- Configurações ocultas -->
+        <input type="hidden" name="_subject" value="📩 Nova inscrição - Fenrir Tactical Unit">
+        <input type="hidden" name="_autoresponse" value="Recebemos seu email, aguarde nosso breve retorno. 🐺⚔️">
+        <input type="hidden" name="_template" value="box">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="obrigado.html">
+      </form>
+    </div>
+  </section>
+
+  <!-- ====== Rodapé ====== -->
+  <footer>
+    <p>© Desde 2025 • Fenrir Tactical Unit Airsoft • Aracaju-SE • Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Botão voltar ao topo -->
+  <button id="btn-topo">⬆</button>
+
+  <!-- ====== Script JS ====== -->
+  <script>
+    // ===== Botão Voltar ao Topo =====
+    const btnTopo = document.getElementById("btn-topo");
+    window.onscroll = function() {
+      btnTopo.style.display = document.documentElement.scrollTop > 200 ? "block" : "none";
+    };
+    btnTopo.onclick = () => window.scrollTo({top: 0, behavior: "smooth"});
+
+    // ===== Accordion =====
+    const accordions = document.querySelectorAll(".accordion-btn");
+    accordions.forEach(btn => {
+      btn.addEventListener("click", function() {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
